@@ -1,0 +1,54 @@
+
+<!-- <div *ngFor="let article of articles">
+    <h3>{{article.title}}</h3>
+    <p>{{article.content}}</p>
+</div> -->
+
+
+<div class="row mb-2" *ngIf="articles.length > 0 else Noarticles">
+    <!-- [class.favorite]="article.isFavorite" -->
+    <app-article [article]="article" (change)="articleChange($event)" class="col-md-6" *ngFor="let article of articles"></app-article>
+  </div> 
+  <ng-template #Noarticles>
+    <div class="row mb-2 text-center">
+      <p style="font-size: 40px;">no articels added yet</p>
+    </div>
+  </ng-template>
+
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link " style="cursor: pointer;" [ngClass]="{'active':view=='tab1' , 'noactive':view!='tab1'}"  (click)="view='tab1'">tab1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" style="cursor: pointer;" [class.active]="view=='tab2'" (click)="view='tab2'">tab2</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" style="cursor: progress;" [class.active]="view=='tab3'" (click)="view='tab3'">tab3</a>
+    </li>
+  </ul>
+
+  <div [ngSwitch]="view">
+    <div *ngSwitchCase = "'tab1'" >tab1 content</div>
+    <div *ngSwitchCase = "'tab2'">tab2 content</div>
+    <div *ngSwitchCase = "'tab3'">tab3 content</div>
+  </div>
+ 
+
+
+
+  <!-- <input type="text" class="form-control" placeholder="enter your name" [(ngModel)]="name" >
+  {{name}}
+   [value]="name" (keyup)="change($event)" -->
+<!-- <button class="btn btn-primary" (click)="save()">Save</button>
+<hr>
+
+
+    <h2>{{course.title | uppercase}}</h2>
+    {{course.rating |number}} <br>
+    {{course.price | currency}}<br>
+    {{course.realeaseDate| date:'shortDate' }} --> 
+<!-- <app-modal>
+  <ng-container class="title">my modal title</ng-container>
+  <ng-container class="content">my modal content</ng-container>
+</app-modal> -->

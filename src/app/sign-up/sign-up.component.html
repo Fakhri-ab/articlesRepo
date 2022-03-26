@@ -1,0 +1,38 @@
+<form [formGroup]="form">  
+
+    <div class="form-group">
+        <label >Name</label>
+        <input formControlName="name" type="text" class="form-control" placeholder="Enter Name">
+        <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+            <span>name is required</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label >UserName</label>
+        <input formControlName="Username" type="text" class="form-control" placeholder="Enter Name">
+        <div class="alert alert-danger" *ngIf="Username.touched && !Username.valid">
+            <span *ngIf="Username.errors.required">Username is required </span>
+            <span *ngIf="Username.errors.cannotContainSpace">Username cannotContainSpace </span>
+        </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+        <span *ngIf="email.errors.required">email is required </span>
+        <span  *ngIf="email.errors.email">email is not valid</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+        <span>password is required</span>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">save</button>
+  </form>
